@@ -63,6 +63,10 @@ app.post('/upload', (req, res) => {
     });
   });
 
+  app.get('/', (req, res) => {
+    res.send({ "response" : "working fine"});
+  });
+
 app.post('/uploads', upload.single('image'), (req, res) => {
   const file = req.image;
   if (!file) {
