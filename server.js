@@ -68,7 +68,7 @@ app.post('/upload', (req, res) => {
   });
 
 app.post('/uploads', upload.single('image'), (req, res) => {
-  const file = req.image;
+  const file = req.file;
   if (!file) {
     console.log(16);
     res.status(400).send('No file uploaded.');
