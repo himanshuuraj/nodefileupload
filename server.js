@@ -92,7 +92,7 @@ app.post('/uploads', upload.single('image'), (req, res) => {
 });
 
 function getImageId(faceObj) {
-    let faceId = faceObj?.FaceMatches;
+    let faceId = faceObj.FaceMatches;
     if(!Array.isArray(faceId) || (faceId.length == 0)) {
         return "";
     }
