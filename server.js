@@ -10,12 +10,7 @@ const upload = multer({
   });
 
 var filePath = "metdata-file.json";
-var faceIdVsName = {
-    "f81cfe6d-3872-4a1d-ad85-abdaeba1a93f": "Richa",
-    "af4ef5b4-626c-4c11-8fe4-c0043f5de2db": "Mausi",
-    "1e4d3b35-33d3-4fb2-9587-f9ec0b45b07d": "Mummy",
-    "f81cfe6d-3872-4a1d-ad85-abdaeba1a93f": "Punya"
-}
+var faceIdVsName = {}
 
 // Configure AWS credentials and S3 bucket
 AWS.config.update({
