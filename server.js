@@ -98,6 +98,7 @@ app.post('/uploads', upload.single('image'), (req, res) => {
     } else {
       // File uploaded successfully to S3
       let response = await searchFacesByImage(bucketName, params.Key);
+      console.log(response);
       res.send({ "image" : faceIdVsName[getImageId(response)]});
     }
   });
