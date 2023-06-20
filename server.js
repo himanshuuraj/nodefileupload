@@ -63,6 +63,7 @@ async function addFaceToCollection(collectionId, imageBytes, userUid) {
 
     let res = await rekognition.indexFaces(params).promise();
     
+    console.log('Res index faces', res);
     let faceId = res.FaceRecords[0].Face.FaceId;
     faceIdVsName[faceId] = userUid;
     writeIntoFile();
