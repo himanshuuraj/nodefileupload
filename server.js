@@ -106,7 +106,7 @@ function getImageId(faceObj) {
     if(!Array.isArray(faceId) || (faceId.length == 0)) {
         return "";
     }
-    return faceId[0]?.Face?.FaceId || "";
+    return faceId[0].Face.FaceId || "";
 }
 
 async function searchFacesByImage(bucketName, imageName) {
