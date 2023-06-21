@@ -99,8 +99,8 @@ app.post('/uploads', upload.single('image'), (req, res) => {
         console.log("yyyy");
         res.send({ "image" : faceIdVsName[getImageId(response)]});
       }catch(e) {
-        console.log("zzzz", e);
-        res.status(500).send(JSON.stringify(e));
+        // console.log("zzzz", e);
+        res.status(500).send("No face detected !!!");
       }
     }
   });
