@@ -86,18 +86,20 @@ app.post('/uploads', upload.single('image'), (req, res) => {
     Key: file.originalname,
     Body: file.buffer,
   };
+  console.log("xxxx");
   s3.upload(params, async (err, data) => {
     if (err) {
       console.log(4);
       console.error(err);
       res.status(500).send('Failed to upload file to S3.');
     } else {
-      // File uploaded successfully to S3
       try {
         let response = await searchFacesByImage(bucketName, params.Key);
         console.log(response);
+        console.log("yyyy");
         res.send({ "image" : faceIdVsName[getImageId(response)]});
       }catch(e) {
+        console.log("zzzz");
         res.status(500).send(JSON.stringify(e));
       }
     }
