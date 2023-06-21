@@ -131,6 +131,7 @@ async function searchFacesByImage(bucketName, imageName) {
     return response;
   } catch (error) {
     console.error("Error", error);
+    throw error;
   }
 }
 
