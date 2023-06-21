@@ -93,9 +93,13 @@ app.post('/uploads', upload.single('image'), (req, res) => {
       res.status(500).send('Failed to upload file to S3.');
     } else {
       // File uploaded successfully to S3
-      let response = await searchFacesByImage(bucketName, params.Key);
-      console.log(response);
-      res.send({ "image" : faceIdVsName[getImageId(response)]});
+      try {
+        let response = await searchFacesByImage(bucketName, params.Key);
+        console.log(response);
+        res.send({ "image" : faceIdVsName[getImageId(response)]});
+      }catch(e) {
+        res.status(500).send(JSON.stringify(e));
+      }
     }
   });
 });
